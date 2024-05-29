@@ -1,0 +1,57 @@
+{
+    "name": "proto-to-data",
+    "displayName": "proto_to_data",
+    "description": "proto-to-mock-data",
+    "publisher": "Marxu",
+    "version": "1.0.0",
+    "engines": {
+      "vscode": "^1.89.0"
+    },
+    "categories": [
+      "Other"
+    ],
+    "main": "./extension.js",
+    "activationEvents": [
+      "onCommand:extension.generateMockData"
+    ],
+    "contributes": {
+      "commands": [
+        {
+          "command": "extension.generateMockData",
+          "title": "Generate Mock Data new"
+        }
+      ],
+      "menus": {
+        "editor/context": [
+          {
+            "when": "resourceLangId == 'proto'",
+            "command": "extension.generateMockData",
+            "group": "navigation"
+          }
+        ],
+        "explorer/context": [
+          {
+            "when": "resourceFilename =~ /.*\\.proto$/",
+            "command": "extension.generateMockData",
+            "group": "navigation"
+          }
+        ]
+      }
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/your-repo/proto-to-data"
+    },
+    "scripts": {
+      "lint": "eslint .",
+      "pretest": "npm run lint",
+      "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+      "@types/vscode": "^1.89.0",
+      "@types/node": "16.x",
+      "eslint": "^8.47.0",
+      "glob": "^10.3.3"
+    }
+  }
+  
